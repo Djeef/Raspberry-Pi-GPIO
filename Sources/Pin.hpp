@@ -21,7 +21,7 @@ class Pin {
 		string m_valuePath;
 
 	public:
-		// Constructor
+		// Constructor/Destructor
 		Pin(int number, string direction);
 		~Pin();
 

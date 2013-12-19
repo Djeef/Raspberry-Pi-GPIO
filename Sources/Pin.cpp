@@ -1,6 +1,6 @@
 #include "Pin.hpp"
 
-// Constructor
+// Constructor/Destructor
 Pin::Pin(int number, string direction) {
 	this->m_number = number;
 	this->m_direction = direction;

@@ -32,7 +32,6 @@ int Gpio::addPin(int number, string direction) {
 
 bool Gpio::removePin(int number) {
 	map<int, Pin*>::iterator it = this->m_pins.find(number);
-	Pin *currentPin;
 	if(it != this->m_pins.end()) {
 		delete(it->second);
 		this->m_pins.erase(it);
