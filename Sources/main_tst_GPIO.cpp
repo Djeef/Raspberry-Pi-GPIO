@@ -11,7 +11,7 @@ void sigHandler(int sig) {
 
 // Exemple : Blink diode pin 4
 int main(int argc, char *argv[]) {
-	Gpio gpio;
+	Gpio gpio;	// The GPIO
 	struct sigaction sigactionStruct;
 	sigactionStruct.sa_handler = sigHandler;
 	sigactionStruct.sa_flags = 0;
@@ -21,15 +21,15 @@ int main(int argc, char *argv[]) {
 		cerr << "SIGACTION FAILED : " << string(strerror(errno)) << endl;
 		return(EXIT_FAILURE);
 	}
-	gpio.addPin(4, "out");
+	gpio.addPin(4, "out");	// ADD PIN 4 (OUT)
 	while(true) {
-		gpio.setValueOf(4, 1);
+		gpio.setValueOf(4, 1);	// WRITE 1 IN PIN 4
 		sleep(1);
-		gpio.setValueOf(4, 0);
+		gpio.setValueOf(4, 0); // WRITE 0 IN PIN 4
 		sleep(1);
 		if(interceptedInteruption) {
 			cout << "\nInteruption : the GPIO is going to be deleted" << endl;
-			gpio.~Gpio();
+			gpio.~Gpio();	//Delete the GPIO
 			break;
 		}
 	}
