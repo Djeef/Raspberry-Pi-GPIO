@@ -7,6 +7,11 @@
 #include <cerrno>
 #include <cstring>
 
+#define OUT "out"
+#define IN "in"
+#define HIGH 1
+#define LOW 0
+
 #define PATH_OF_GPIO "/sys/class/gpio"
 #define PATH_OF_EXPORT string(PATH_OF_GPIO) + "/export"
 #define PATH_OF_UNEXPORT string(PATH_OF_GPIO) + "/unexport"

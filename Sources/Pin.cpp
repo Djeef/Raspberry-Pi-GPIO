@@ -72,10 +72,9 @@ int Pin::getValue() const {
 	valueFile >> value;
 	valueFile.close();
 	if(value != "0") {
-		return(1);
-	} else {
-		return(0);
-	}
+		return(HIGH);
+	} 
+	return(LOW);
 }
 
 int Pin::getNumber() const {

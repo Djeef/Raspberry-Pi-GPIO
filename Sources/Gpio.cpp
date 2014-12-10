@@ -6,7 +6,7 @@ Gpio::Gpio() {
 
 Gpio::~Gpio() {
 	map<int, Pin*>::iterator it;
-	for(it = this->m_pins.begin(); it != m_pins.end(); it++) {
+	for(it = this->m_pins.begin(); it != m_pins.end(); ++it) {
 		delete(it->second);
 		this->m_pins.erase(it);
 	}

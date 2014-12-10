@@ -1,6 +1,7 @@
 #include <iostream>
 #include <csignal>
 #include <cstdlib>
+#include <unistd.h>
 #include "Gpio.hpp"
 
 bool interceptedInteruption = false;
@@ -21,11 +22,11 @@ int main(int argc, char *argv[]) {
 		cerr << "SIGACTION FAILED : " << string(strerror(errno)) << endl;
 		return(EXIT_FAILURE);
 	}
-	gpio.addPin(4, "out");	// ADD PIN 4 (OUT)
+	gpio.addPin(4, OUT);	// ADD PIN 4 (OUT)
 	while(true) {
-		gpio.setValueOf(4, 1);	// WRITE 1 IN PIN 4
+		gpio.setValueOf(4, HIGH);	// WRITE 1 IN PIN 4
 		sleep(1);
-		gpio.setValueOf(4, 0); // WRITE 0 IN PIN 4
+		gpio.setValueOf(4, LOW);	// WRITE 0 IN PIN 4
 		sleep(1);
 		if(interceptedInteruption) {
 			cout << "\nInteruption : the GPIO is going to be deleted" << endl;
