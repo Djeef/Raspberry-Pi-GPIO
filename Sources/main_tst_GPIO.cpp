@@ -30,7 +30,6 @@ int main(int argc, char *argv[]) {
 		sleep(1);
 		if(interceptedInteruption) {
 			cout << "\nInteruption : the GPIO is going to be deleted" << endl;
-			gpio.~Gpio();	//Delete the GPIO
 			break;
 		}
 	}
